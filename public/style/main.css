@@ -1,0 +1,249 @@
+:root {
+    /* Desktop */
+    --font-size-desktop: 1.1rem;
+    --title-size-desktop: 3rem;
+    --subtitle-size-desktop: 2rem;
+    --menu-item-size-desktop: 2rem;
+    /* Mobile */
+    --font-size-mobile: 1.1rem;
+    --title-size-mobile: 2.5rem;
+    --subtitle-size-mobile: 1.8rem;
+    --menu-item-size-mobile: 1.2rem;
+    /* Colors */
+    --primary-color: #212121;
+    --secondary-color: #fcfefc;
+    --tertiary-color: #FFC922;
+    --bg-color: #FCFEFC;
+    --error-color: #FF6E6F;
+}
+
+/* Global */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--primary-color);
+    font-size: var(--font-size-desktop);
+    font-family: solano-gothic-pro-mvb, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: var(--title-size-desktop);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--subtitle-size-desktop);
+    font-weight: 500;
+}
+
+.solano-light {
+    font-family: solano-gothic-pro-mvb, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.solano-regular {
+    font-family: solano-gothic-pro-mvb, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.solano-medium {
+    font-family: solano-gothic-pro-mvb, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.solano-semiBold {
+    font-family: solano-gothic-pro-mvb, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.solano-bold {
+    font-family: solano-gothic-pro-mvb, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Menu */
+
+nav.menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    height: 75px;
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.menu-logo {
+    height: 100%;
+    position: relative;
+}
+
+.menu-logo a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-logo img {
+    width: auto;
+    height: 100%;
+}
+
+.logo-smash-white, .logo-smash-black {
+    display: none;
+}
+
+.logo-smash-white.active, .logo-smash-black.active {
+    display: block;
+}
+
+.overlay {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    z-index: 0;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    transition: all .3s ease;
+    background-color: var(--primary-color);
+}
+
+.overlay.active {
+    top: 0;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 4rem;
+    overflow: auto;
+}
+
+.menu-burger {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.menu-burger.active {
+    gap: 0;
+}
+
+.menu-burger .burger-line {
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all .3s ease;
+}
+
+.menu-burger.active .burger-line {
+    background-color: var(--secondary-color);
+}
+
+.menu-burger.active .burger-line-2 {
+    display: none;
+}
+
+.menu-burger.active .burger-line-1 {
+    transform: rotate(45deg) translateY(1px);
+}
+
+.menu-burger.active .burger-line-3 {
+    transform: rotate(-45deg) translateY(-1px);
+}
+
+.menu-item {
+    padding-bottom: 1.2rem;
+}
+
+.menu-item a {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: var(--menu-item-size-desktop);
+    position: relative;
+}
+
+.menu-item a:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--tertiary-color);
+    left: 0;
+    bottom: -4px;
+    transition: width .3s ease;
+}
+
+.menu-item a:hover:before {
+    width: 100%;
+}
+
+.menu-items-admin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-item-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--tertiary-color);
+    border-radius: 8px;
+    padding: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: var(--menu-item-size-desktop);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.menu-items-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sections */
+.top-section {
+    padding-top: 75px;
+}
