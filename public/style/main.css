@@ -5,7 +5,7 @@
     --subtitle-size-desktop: 2rem;
     --menu-item-size-desktop: 2rem;
     /* Mobile */
-    --font-size-mobile: 1.1rem;
+    --font-size-mobile: 1rem;
     --title-size-mobile: 2.5rem;
     --subtitle-size-mobile: 1.8rem;
     --menu-item-size-mobile: 1.2rem;
@@ -30,6 +30,12 @@
     font-style: normal;
 }
 
+@media (max-width: 767px) {
+    * {
+        font-size: var(--font-size-mobile);
+    }
+}
+
 body {
     background-color: var(--bg-color);
 }
@@ -46,6 +52,12 @@ a {
 h1 {
     font-size: var(--title-size-desktop);
     font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: var(--title-size-mobile);
+    }
 }
 
 h2 {

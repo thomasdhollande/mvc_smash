@@ -5,6 +5,14 @@ use utils\SessionHelpers;
 
 include("autoload.php");
 
+$public_path = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+$public_path .= $_SERVER['HTTP_HOST'];
+$public_path .= '/ecv-smash-mvc/mvc_smash/public/';
+
+//var_dump($public_path);
+
+define('PUBLIC_PATH', $public_path);
+
 /*
  * Permet l'utilisation du serveur PHP interne et l'affichage des contenus static.
  */
