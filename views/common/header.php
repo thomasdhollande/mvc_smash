@@ -16,8 +16,8 @@
     <nav class="menu solano-bold">
         <div class="menu-logo">
             <a href="./"></a>
-            <img src="./public/images/logo-smash-black.svg" alt="Logo Smash Black" class="logo-smash-black active">
-            <img src="./public/images/logo-smash-white.svg" alt="Logo Smash White" class="logo-smash-white">
+            <img src="./public/images/logo/logo-smash-black.svg" alt="Logo Smash Black" class="logo-smash-black active">
+            <img src="./public/images/logo/logo-smash-white.svg" alt="Logo Smash White" class="logo-smash-white">
         </div>
         <div class="menu-burger">
            <div class="burger-line burger-line-1"></div>

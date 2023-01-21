@@ -6,14 +6,18 @@
 
     <div class="content">
         <div class="cards">
-            <div class="card">
-                <a href="./games">Voir les jeux</a>
+            <div class="card see_games">
+                <a href="./games" class="solano-bold">Voir les jeux</a>
             </div>
-            <div class="card">
-                <a href="./characters">Voir les personnages</a>
+            <div class="card see_characters">
+                <a href="./characters" class="solano-bold">Voir les personnages</a>
             </div>
-            <div class="card">
-                <a href="./galery">Voir la gallerie</a>
+            <div class="card galery">
+                <a href="./galery" class="solano-bold">Voir la gallerie</a>
+            </div>
+
+            <div style="background: no-repeat center/cover url('<?= PUBLIC_PATH . 'images/home/mario.png' ?>'); width: 100px; height: 100px;">
+                
             </div>
         </div>
     </div>
