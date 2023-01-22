@@ -32,9 +32,9 @@
     </ul>
 </div>
 
-<script src="./public/js/main.js"></script>
+<script src="<?= PUBLIC_PATH ?>js/main.js"></script>
 <?php if (isset($js_file_name) && $js_file_name !== '') : ?>
-    <script src="./public/js/<?= $js_file_name ?>.js"></script>
+    <script src="<?= PUBLIC_PATH ?>js/<?= $js_file_name ?>.js"></script>
 <?php endif; ?>
 
 

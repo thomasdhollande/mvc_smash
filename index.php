@@ -6,8 +6,10 @@ use utils\SessionHelpers;
 include("autoload.php");
 $configs = include("./configs.php");
 
+$path = $configs['PATH'];
 $public_path = $configs['PUBLIC_PATH'];
 
+define('PATH', $path);
 define('PUBLIC_PATH', $public_path);
 
 /*
