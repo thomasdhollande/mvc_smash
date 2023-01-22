@@ -15,14 +15,9 @@ class SmashOneGameController extends WebController
         $this->smashOneGameModel = new SmashGamesModel();
     }
 
-    public function getByGameId($gameId): string
+    public function getByGameId($game_id): string
     {
-
-        if (isset($_GET['gameId'])) {
-            $gameId = $_GET['gameId'];
-        }
-
-        $smashOneGame = $this->smashOneGameModel->getByGameId($gameId);
+        $smashOneGame = $this->smashOneGameModel->getByGameId($game_id);
 
         return Template::render(
             "views/SmashOneGameView.php",

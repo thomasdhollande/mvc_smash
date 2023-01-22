@@ -51,7 +51,7 @@ class SmashGamesModel extends SQL
         $query = "SELECT * FROM smash WHERE id = ?";
         $stmt = SQL::getPdo()->prepare($query);
         $stmt->execute([$gameId]);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, SmashGame::class);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, SmashGames::class);
         return $stmt->fetch();
     }
 }
