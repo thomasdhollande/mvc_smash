@@ -15,10 +15,7 @@
             <div class="card galery">
                 <a href="./galery" class="solano-bold">Voir la gallerie</a>
             </div>
-
-            <div style="background: no-repeat center/cover url('<?= PUBLIC_PATH . 'images/home/mario.png' ?>'); width: 100px; height: 100px;">
-                
-            </div>
         </div>
+    </div>
     </div>
 </section>

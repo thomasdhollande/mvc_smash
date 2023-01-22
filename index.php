@@ -4,13 +4,9 @@ use routes\base\Router;
 use utils\SessionHelpers;
 
 include("autoload.php");
+$configs = include("./configs.php");
 
-$public_path = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
-$public_path .= $_SERVER['HTTP_HOST'];
-$public_path .= '/public/';
-// $public_path .= '/ecv-smash-mvc/mvc_smash/public/';
-
-//var_dump($public_path);
+$public_path = $configs['PUBLIC_PATH'];
 
 define('PUBLIC_PATH', $public_path);
 
