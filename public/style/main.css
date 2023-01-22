@@ -163,6 +163,34 @@ nav.menu {
     overflow: auto;
 }
 
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-auth {
+    width: 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.menu-auth a {
+    max-height: 100%;
+    width: auto;
+}
+
+.menu-auth a svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--primary-color);
+}
+
+.menu-auth a svg.active {
+    fill: var(--secondary-color);
+}
+
 .menu-burger {
     height: 100%;
     display: flex;
