@@ -2,13 +2,41 @@
 
 namespace models\classes;
 
+use models\SmashImagesModel;
+use models\SmashVideosModel;
+
 class SmashGames
 {
     private int $id;
     private string $name;
     private string $date_release;
     private string $bg_image;
+    private SmashImagesModel $smashImagesModel;
+    private SmashVideosModel $smashVideosModel;
 
+    function __construct()
+    {
+        $this->smashImagesModel = new SmashImagesModel();
+        $this->smashVideosModel = new SmashVideosModel();
+    }
+
+    /**
+     * Retourne la liste des images d'un jeu'
+     * @return SmashImages[]
+     */
+    public function allImages(): array
+    {
+        return $this->smashImagesModel->allSmashGameImages($this->id);
+    }
+
+    /**
+     * Retourne la liste des vidéos d'un jeu
+     * @return SmashVideos[]
+     */
+    public function allVideos(): array
+    {
+        return $this->smashVideosModel->allSmashGameVideos($this->id);
+    }
 
     /**
      * Affichage des informations de base du jeu

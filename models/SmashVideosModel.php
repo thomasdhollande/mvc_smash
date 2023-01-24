@@ -34,7 +34,20 @@ class SmashVideosModel extends SQL
     {
         $query = "INSERT INTO smash_videos (id, smash_id, path) VALUE (NULL, smash_id, ?)";
         $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$image->getSmashId(),$image->getPath()]);
+        $stmt->execute([$image->getSmashId(), $image->getPath()]);
         return $this->getPdo()->lastInsertId();
+    }
+
+    /**
+     * Sélectionne une image précise selon l'id
+     */
+
+    public function getByImageId($videoId): SmashVideos
+    {
+        $query = "SELECT * FROM smash_videos WHERE id = ?";
+        $stmt = SQL::getPdo()->prepare($query);
+        $stmt->execute([$videoId]);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, SmashVideos::class);
+        return $stmt->fetch();
     }
 }

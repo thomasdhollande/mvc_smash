@@ -34,7 +34,7 @@ class SmashImagesModel extends SQL
     {
         $query = "INSERT INTO smash_images (id, smash_id, path) VALUE (NULL, smash_id, ?)";
         $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$image->getSmashId(),$image->getPath()]);
+        $stmt->execute([$image->getSmashId(), $image->getPath()]);
         return $this->getPdo()->lastInsertId();
     }
 }
