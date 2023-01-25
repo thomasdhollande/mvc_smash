@@ -10,7 +10,9 @@ class SmashGames
     private int $id;
     private string $name;
     private string $date_release;
+    private string $text;
     private string $bg_image;
+    private string $trailer_video;
     private SmashImagesModel $smashImagesModel;
     private SmashVideosModel $smashVideosModel;
 
@@ -95,6 +97,22 @@ class SmashGames
         $this->date_release = $date_release;
     }
 
+        /**
+     * @return string
+     */
+    public function getText(): string
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param string $text
+     */
+    public function setText(string $text): void
+    {
+        $this->text = $text;
+    }
+
     /**
      * @return string
      */
@@ -104,10 +122,26 @@ class SmashGames
     }
 
     /**
-     * @param string $date_release
+     * @param string $bg_image
      */
     public function setBgImage(string $bg_image): void
     {
         $this->bg_image = $bg_image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrailerVideo(): string
+    {
+        return $this->trailer_video;
+    }
+
+    /**
+     * @param string $trailer_video
+     */
+    public function setTrailerVideo(string $trailer_video): void
+    {
+        $this->trailer_video = $trailer_video;
     }
 }

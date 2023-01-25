@@ -37,17 +37,4 @@ class SmashVideosModel extends SQL
         $stmt->execute([$image->getSmashId(), $image->getPath()]);
         return $this->getPdo()->lastInsertId();
     }
-
-    /**
-     * Sélectionne une image précise selon l'id
-     */
-
-    public function getByImageId($videoId): SmashVideos
-    {
-        $query = "SELECT * FROM smash_videos WHERE id = ?";
-        $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$videoId]);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, SmashVideos::class);
-        return $stmt->fetch();
-    }
 }
