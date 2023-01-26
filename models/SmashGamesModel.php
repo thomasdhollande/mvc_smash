@@ -4,6 +4,7 @@ namespace models;
 
 use models\base\SQL;
 use models\classes\SmashGames;
+use models\classes\SmashImages;
 
 class SmashGamesModel extends SQL
 {
@@ -14,8 +15,6 @@ class SmashGamesModel extends SQL
 
     /**
      * Liste les jeux présents en base de données
-     * @param int $limit
-     * @param int $page
      * @return SmashGames[]
      */
     public function listGames(): array
@@ -54,4 +53,18 @@ class SmashGamesModel extends SQL
         $stmt->setFetchMode(\PDO::FETCH_CLASS, SmashGames::class);
         return $stmt->fetch();
     }
+
+    /**
+     * Liste les images d'un jeu
+     * @param int $gameId
+     * @return SmashImages[]
+     */
+    public function getImagesByGameId(int $gameId): array
+    {
+        $query = "SELECT * FROM smash_images WHERE smash_id = ?";
+        $stmt = SQL::getPdo()->prepare($query);
+        $stmt->execute([$gameId]);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashImages::class);
+    }
+
 }

@@ -9,6 +9,15 @@
                 <iframe src="<?= $smashOneGame->getTrailerVideo() ?>">
                 </iframe>
         </div>
-        <div><?= $smashOneGame->getText() ?></div>
+        <div class="game-text"><?= $smashOneGame->getText() ?></div>
+        <div class="game-gallery">
+                <?php
 
+                foreach ($images as $image) {
+                ?>
+                        <img src="<?= PUBLIC_PATH . $image->getPath() ?>">
+                <?php
+                }
+                ?>
+        </div>
 </section>
