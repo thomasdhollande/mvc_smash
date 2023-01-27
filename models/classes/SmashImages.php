@@ -7,7 +7,7 @@ use models\SmashGamesModel;
 class SmashImages
 {
     private int $id;
-    private string $smash_id;
+    private int $smash_id;
     private string $path;
     private SmashGamesModel $smashGamesModel;
 
@@ -47,7 +47,7 @@ class SmashImages
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getSmashId(): string
     {
@@ -55,9 +55,9 @@ class SmashImages
     }
 
     /**
-     * @param string $smash_id
+     * @param int $smash_id
      */
-    public function setSmashId(string $smash_id): void
+    public function setSmashId(int $smash_id): void
     {
         $this->smash_id = $smash_id;
     }

@@ -21,12 +21,15 @@ class SmashOneGameController extends WebController
 
         $images = $this->smashOneGameModel->getImagesByGameId($game_id);
 
+        $characters = $this->smashOneGameModel->getCharactersByGameId($game_id);
+
         return Template::render(
             "views/SmashOneGameView.php",
             array(
                 "smashOneGame" => $smashOneGame,
                 "css_file_name" => "smashOneGame",
-                "images" => $images
+                "images" => $images,
+                "characters" => $characters
                 )
 
         );

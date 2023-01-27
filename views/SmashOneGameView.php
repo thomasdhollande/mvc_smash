@@ -10,14 +10,37 @@
                 </iframe>
         </div>
         <div class="game-text"><?= $smashOneGame->getText() ?></div>
-        <div class="game-gallery">
-                <?php
 
-                foreach ($images as $image) {
-                ?>
-                        <img src="<?= PUBLIC_PATH . $image->getPath() ?>">
-                <?php
-                }
-                ?>
+        <div class="game-gallery">
+                <div class="game-gallery-title">Galerie</div>
+                <div class="game-gallery-image">
+
+                        <?php
+
+                        foreach ($images as $image) {
+                        ?>
+                                <img src="<?= PUBLIC_PATH . $image->getPath() ?>">
+                        <?php
+                        }
+                        ?>
+                </div>
         </div>
+
+        <div class="game-characters">
+                <div class="game-characters-title">Personnages</div>
+                <div class="game-characters-list">
+
+                        <?php
+
+                        foreach ($characters as $character) {
+                                if (!empty($character->getMainImage())) {
+                        ?>
+                                        <img src="<?= PUBLIC_PATH . $character->getMainImage() ?>">
+                        <?php
+                                }
+                        }
+                        ?>
+                </div>
+        </div>
+
 </section>

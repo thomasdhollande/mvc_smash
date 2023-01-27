@@ -5,6 +5,7 @@ namespace models;
 use models\base\SQL;
 use models\classes\SmashGames;
 use models\classes\SmashImages;
+use models\classes\SmashCharacters;
 
 class SmashGamesModel extends SQL
 {
@@ -67,4 +68,16 @@ class SmashGamesModel extends SQL
         return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashImages::class);
     }
 
+    /**
+     * Liste les personnages d'un jeu
+     * @param int $gameId
+     * @return SmashCharacters[]
+     */
+    public function getCharactersByGameId(int $gameId): array
+    {
+        $query = "SELECT * FROM characters INNER JOIN smash_characters ON smash_characters.character_id  = characters.id INNER JOIN smash ON smash.id = smash_characters.smash_id  WHERE smash_id = ? ORDER BY `characters`.`number` ASC";
+        $stmt = SQL::getPdo()->prepare($query);
+        $stmt->execute([$gameId]);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashCharacters::class);
+    }
 }

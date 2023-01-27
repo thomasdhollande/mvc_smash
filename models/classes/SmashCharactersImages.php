@@ -2,32 +2,31 @@
 
 namespace models\classes;
 
-use models\SmashGamesModel;
+use models\SmashCharactersModel;
 
-class SmashVideos
+class SmashCharactersImages
 {
     private int $id;
-    private int $smash_id;
+    private string $character_id;
     private string $path;
-    private SmashGamesModel $smashGamesModel;
+    private SmashCharactersModel $smashCharactersModel;
 
     public function __construct()
     {
-        $this->smashGamesModel = new SmashGamesModel();
+        $this->smashCharactersModel = new SmashCharactersModel();
     }
 
-    public function thisSmashGame(): SmashGames
+    public function thisCharacter(): SmashCharacters
     {
-        return $this->smashGamesModel->getByGameId($this->smash_id);
+        return $this->smashCharactersModel->getByCharacterId($this->character_id);
     }
-
     /**
      * Affichage des informations de base d'une image
      * @return string
      */
     public function generalInfo(): string
     {
-        return join(",", array_filter([$this->id, $this->smash_id, $this->path]));
+        return join(",", array_filter([$this->id, $this->character_id, $this->path]));
     }
 
     /**
@@ -49,17 +48,17 @@ class SmashVideos
     /**
      * @return int
      */
-    public function getSmashId(): int
+    public function getCharacterId(): int
     {
-        return $this->smash_id;
+        return $this->character_id;
     }
 
     /**
-     * @param int $smash_id
+     * @param int $character_id
      */
-    public function setSmashId(int $smash_id): void
+    public function setCharacterId(int $character_id): void
     {
-        $this->smash_id = $smash_id;
+        $this->character_id = $character_id;
     }
 
     /**

@@ -13,6 +13,20 @@ class SmashImagesModel extends SQL
     }
 
     /**
+     * Liste les images présentes en base de données
+     * @return SmashImages[]
+     */
+    public function listImages(): array
+    {
+        $query = "SELECT * FROM smash_images;";
+
+        $stmt = SQL::getPdo()->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashImages::class);
+    }
+
+    /**
      * Liste les images d'un jeu
      * @param string $smash_id
      * @return SmashImages[]

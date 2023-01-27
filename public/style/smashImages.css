@@ -1,0 +1,33 @@
+#smashImages {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.images-gallery-title {
+    color: var(--primary-color);
+    font-size: var(--subtitle-size-desktop);
+    font-weight: bold;
+}
+
+.images-gallery-image {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.images-gallery-image img {
+    width: 25%;
+}
