@@ -2,9 +2,11 @@
 
         <div class="game-banner" style="background-image: url('<?= PUBLIC_PATH . $smashOneGame->getBgImage() ?>')">
                 <div class="game-banner-title"><?= $smashOneGame->getName() ?></div>
+                <div class="game-banner-date">Sortie le <?= date('d-m-Y', strtotime($smashOneGame->getDateRelease())) ?></div>
         </div>
 
-        <div class="game-date">Sortie le <?= $smashOneGame->getDateRelease() ?></div>
+
+
         <div class="game-trailer">
                 <iframe src="<?= $smashOneGame->getTrailerVideo() ?>">
                 </iframe>
@@ -26,20 +28,22 @@
                 </div>
         </div>
 
-        <div class="game-characters">
-                <div class="game-characters-title">Personnages</div>
-                <div class="game-characters-list">
+        <div class="game-characters-container">
+                <div class="game-characters-container-inner">
+                        <div class="game-characters-title">Personnages</div>
+                        <div class="game-characters-list">
 
-                        <?php
+                                <?php
 
-                        foreach ($characters as $character) {
-                                if (!empty($character->getMainImage())) {
-                        ?>
-                                        <img src="<?= PUBLIC_PATH . $character->getMainImage() ?>">
-                        <?php
+                                foreach ($characters as $character) {
+                                        if (!empty($character->getMainImage())) {
+                                ?>
+                                                <img src="<?= PUBLIC_PATH . $character->getMainImage() ?>">
+                                <?php
+                                        }
                                 }
-                        }
-                        ?>
+                                ?>
+                        </div>
                 </div>
         </div>
 

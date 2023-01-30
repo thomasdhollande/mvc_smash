@@ -10,14 +10,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
     padding-bottom: 1rem;
     padding: 0 10% 0 10%;
 }
 
 .characters-gallery-title {
     color: var(--primary-color);
-    font-size: var(--subtitle-size-desktop);
+    font-size: var(--title-size-desktop);
     font-weight: bold;
 }
 

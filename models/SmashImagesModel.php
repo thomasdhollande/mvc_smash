@@ -41,12 +41,12 @@ class SmashImagesModel extends SQL
 
     /**
      * Ajoute une image en base pour le jeu $smash_id
-     * @param SmashImages $path
+     * @param SmashImages $image
      * @return string
      */
     public function createSmashImage(SmashImages $image): string
     {
-        $query = "INSERT INTO smash_images (id, smash_id, path) VALUE (NULL, smash_id, ?)";
+        $query = "INSERT INTO smash_images (id, smash_id, path) VALUE (NULL, ?, ?)";
         $stmt = SQL::getPdo()->prepare($query);
         $stmt->execute([$image->getSmashId(), $image->getPath()]);
         return $this->getPdo()->lastInsertId();
