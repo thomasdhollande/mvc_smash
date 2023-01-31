@@ -47,4 +47,23 @@
                 </div>
         </div>
 
+        <div class="game-comments">
+                <div class="game-comments-title">Commentaires</div>
+
+                <?php
+
+                foreach ($comments as $comment) {
+
+                ?>
+                        <div class="game-comments-item">
+                                <div class="game-comments-pseudo"><?= $comment->userInfo()->getPseudo() ?></div>
+                                <div class="game-comments-text"><?= $comment->getComment() ?></div>
+                        </div>
+                <?php
+
+                }
+                ?>
+
+        </div>
+
 </section>

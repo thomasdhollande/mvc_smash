@@ -4,6 +4,7 @@ namespace models;
 
 use models\base\SQL;
 use models\classes\SmashComments;
+use models\classes\SmashUsers;
 
 class SmashCommentsModel extends SQL
 {
@@ -27,19 +28,19 @@ class SmashCommentsModel extends SQL
     }
 
     /**
-     * Liste les commentaires d'un jeu
+     * Liste les informations d'un utilisateur selon un commentaire
      * @param string $smash_id
-     * @return SmashComments[]
+     * @return SmashUsers[]
      */
-    public function allSmashGameComments(string $smash_id): array
+    public function getUserByCommentId(int $userId): array
     {
-        $query = "SELECT * FROM comments WHERE smash_id = ?";
+        $query = "SELECT * FROM users WHERE id = ?";
         $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$smash_id]);
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashComments::class);
+        $stmt->execute([$userId]);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashUsers::class);
     }
 
-        /**
+    /**
      * Liste les commentaires d'un utilisateur
      * @param int $userId
      * @return SmashComments[]
@@ -53,15 +54,30 @@ class SmashCommentsModel extends SQL
     }
 
     /**
+     * Liste les commentaires d'un jeu
+     * @param int $userId
+     * @return SmashComments[]
+     */
+    public function allSmashGameComments(int $smashId): array
+    {
+        $query = "SELECT * FROM comments WHERE smash_id = ?";
+        $stmt = SQL::getPdo()->prepare($query);
+        $stmt->execute([$smashId]);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashComments::class);
+    }
+
+    /**
      * Ajoute un commentaire en base pour le jeu $smash_id et l'utilisateur $user_id
      * @param SmashComments $comment
      * @return string
      */
-    public function createSmashImage(SmashComments $comment): string
+    public function createSmashComment(SmashComments $comment): string
     {
-        $query = "INSERT INTO comments (id, smash_id, user_id,text) VALUE (NULL, ?, ?, ?)";
+        $query = "INSERT INTO comments (id, smash_id, user_id,comment) VALUE (NULL, ?, ?, ?)";
         $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$comment->getSmashId(), $comment->getUserId(), $comment->getText()]);
+        $stmt->execute([$comment->getSmashId(), $comment->getUserId(), $comment->getComment()]);
         return $this->getPdo()->lastInsertId();
     }
+
+
 }

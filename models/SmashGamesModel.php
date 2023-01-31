@@ -6,6 +6,7 @@ use models\base\SQL;
 use models\classes\SmashGames;
 use models\classes\SmashImages;
 use models\classes\SmashCharacters;
+use models\classes\SmashComments;
 
 class SmashGamesModel extends SQL
 {
@@ -80,4 +81,19 @@ class SmashGamesModel extends SQL
         $stmt->execute([$gameId]);
         return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashCharacters::class);
     }
+
+    /**
+     * Liste les commentaires d'un jeu
+     * @param int $gameId
+     * @return SmashComments[]
+     */
+    public function getCommentsByGameId(int $gameId): array
+    {
+        $query = "SELECT * FROM comments WHERE smash_id = ?";
+        $stmt = SQL::getPdo()->prepare($query);
+        $stmt->execute([$gameId]);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, SmashComments::class);
+    }
 }
+
+

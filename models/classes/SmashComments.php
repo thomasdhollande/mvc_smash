@@ -2,12 +2,29 @@
 
 namespace models\classes;
 
+use models\SmashUsersModel;
+
 class SmashComments
 {
     private int $id;
     private int $smash_id;
     private string $user_id;
-    private string $text;
+    private string $comment;
+    private SmashUsersModel $SmashUsersModel;
+
+    function __construct()
+    {
+        $this->SmashUsersModel = new SmashUsersModel();
+    }
+
+    /**
+     * Retourne les informations d'un utilisateur à propos d'un commentaire
+     * @return SmashUsers[]
+     */
+    public function userInfo(): SmashUsers
+    {
+        return $this->SmashUsersModel->getByUserId($this->user_id);
+    }
 
     /**
      * Affichage des informations de base d'un commentaire
@@ -15,7 +32,7 @@ class SmashComments
      */
     public function generalInfo(): string
     {
-        return join(",", array_filter([$this->id, $this->smash_id, $this->user_id, $this->text]));
+        return join(",", array_filter([$this->id, $this->smash_id, $this->user_id, $this->comment]));
     }
 
     /**
@@ -50,7 +67,7 @@ class SmashComments
         $this->smash_id = $smash_id;
     }
 
-        /**
+    /**
      * @return int
      */
     public function getUserId(): string
@@ -69,16 +86,16 @@ class SmashComments
     /**
      * @return string
      */
-    public function getText(): string
+    public function getComment(): string
     {
-        return $this->text;
+        return $this->comment;
     }
 
     /**
-     * @param string $path
+     * @param string $comment
      */
-    public function setText(string $text): void
+    public function setComment(string $comment): void
     {
-        $this->text = $text;
+        $this->comment = $comment;
     }
 }

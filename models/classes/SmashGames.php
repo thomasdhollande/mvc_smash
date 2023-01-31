@@ -4,6 +4,7 @@ namespace models\classes;
 
 use models\SmashImagesModel;
 use models\SmashVideosModel;
+use models\SmashCommentsModel;
 
 class SmashGames
 {
@@ -15,11 +16,13 @@ class SmashGames
     private string $trailer_video;
     private SmashImagesModel $smashImagesModel;
     private SmashVideosModel $smashVideosModel;
+    private SmashCommentsModel $SmashCommentsModel;
 
     function __construct()
     {
         $this->smashImagesModel = new SmashImagesModel();
         $this->smashVideosModel = new SmashVideosModel();
+        $this->SmashCommentsModel = new SmashCommentsModel();
     }
 
     /**
@@ -38,6 +41,15 @@ class SmashGames
     public function allVideos(): array
     {
         return $this->smashVideosModel->allSmashGameVideos($this->id);
+    }
+
+        /**
+     * Retourne la liste des commentaires d'un jeu'
+     * @return SmashComments[]
+     */
+    public function allComments(): array
+    {
+        return $this->SmashCommentsModel->allSmashGameComments($this->id);
     }
 
     /**
