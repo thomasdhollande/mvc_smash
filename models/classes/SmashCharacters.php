@@ -5,7 +5,7 @@ namespace models\classes;
 class SmashCharacters
 {
     private int $id;
-    private string $name;
+    private string $character_name;
     private string $number;
     private string $origin_game;
     private string $first_apparition;
@@ -17,7 +17,7 @@ class SmashCharacters
      */
     public function generalInfo(): string
     {
-        return join(",", array_filter([$this->id, $this->name, $this->number, $this->origin_game, $this->first_apparition, $this->main_image]));
+        return join(",", array_filter([$this->id, $this->character_name, $this->number, $this->origin_game, $this->first_apparition, $this->main_image]));
     }
 
     /**
@@ -39,17 +39,17 @@ class SmashCharacters
     /**
      * @return string
      */
-    public function getName(): string
+    public function getCharacterName(): string
     {
-        return $this->name;
+        return $this->character_name;
     }
 
     /**
-     * @param string $name
+     * @param string $character_name
      */
-    public function setName(string $name): void
+    public function setCharacterName(string $character_name): void
     {
-        $this->name = $name;
+        $this->character_name = $character_name;
     }
 
     /**

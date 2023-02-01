@@ -31,3 +31,9 @@
 .images-gallery-image img {
     width: 25%;
 }
+
+@media (max-width: 425px) {
+    .images-gallery-image img{
+        flex: 0 1 calc(43% - 0px);
+    }
+  }

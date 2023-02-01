@@ -73,9 +73,9 @@ class SmashCommentsModel extends SQL
      */
     public function createSmashComment(SmashComments $comment): string
     {
-        $query = "INSERT INTO comments (id, smash_id, user_id,comment) VALUE (NULL, ?, ?, ?)";
+        $query = "INSERT INTO comments (id, smash_id, user_id,comment,date) VALUE (NULL, ?, ?, ?, ?)";
         $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$comment->getSmashId(), $comment->getUserId(), $comment->getComment()]);
+        $stmt->execute([$comment->getSmashId(), $comment->getUserId(), $comment->getComment(),$comment->getDate()]);
         return $this->getPdo()->lastInsertId();
     }
 

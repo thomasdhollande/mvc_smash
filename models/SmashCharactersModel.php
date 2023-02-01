@@ -34,9 +34,9 @@ class SmashCharactersModel extends SQL
      */
     public function createCharacter(SmashCharacters $oneCharacter): bool|string
     {
-        $query = "INSERT INTO characters (id, name, number, origin_game, first_apparition, main_image) VALUES (null, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO characters (id, character_name, number, origin_game, first_apparition, main_image) VALUES (null, ?, ?, ?, ?, ?)";
         $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$oneCharacter->getName(), $oneCharacter->getNumber(), $oneCharacter->getOriginGame(), $oneCharacter->getFirstApparition(), $oneCharacter->getMainImage()]);
+        $stmt->execute([$oneCharacter->getCharacterName(), $oneCharacter->getNumber(), $oneCharacter->getOriginGame(), $oneCharacter->getFirstApparition(), $oneCharacter->getMainImage()]);
 
         return $this->getPdo()->lastInsertId();
     }

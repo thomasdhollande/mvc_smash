@@ -87,6 +87,12 @@
     width: 25%;
 }
 
+@media (max-width: 425px) {
+    .game-gallery-image img{
+        flex: 0 1 calc(43% - 0px);
+    }
+  }
+
 .game-characters {
     display: flex;
     flex-direction: column;
@@ -110,18 +116,42 @@
     padding: 0 10% 0 10%;
 }
 
-.game-characters-list img {
+.game-characters-list-item {
     width: 18%;
+    flex: 0 1 calc(20% - 8px);
+    position: relative;
+    display: flex;
+}
+
+@media (max-width: 425px) {
+    .game-characters-list-item {
+        flex: 0 1 calc(40% - 0px);
+    }
+  }
+
+.game-characters-list-item  img {
+    width: 100%;
     transform-origin: center;
     transform: scale(1) translateZ(0);
     transition:
         filter 200ms linear,
         transform 200ms linear;
-        flex: 0 1 calc(20% - 8px);
 }
 
-.game-characters-list img:hover {
+.game-characters-list-item  img:hover {
     transform: scale(1.10) translateZ(0);
+}
+
+.game-characters-list-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--secondary-color);
+    font-size: var(--menu-item-size-desktop);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px var(--primary-color);
+    text-align: center;
 }
 
 .game-comments{
@@ -160,4 +190,16 @@
 .game-comments-text {
     color: var(--primary-color);
     font-size: var(--font-size-desktop);
+}
+
+.game-comments-date {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.game-comments-date-item {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 300;
 }

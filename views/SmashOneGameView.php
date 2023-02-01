@@ -28,22 +28,26 @@
                 </div>
         </div>
 
-        <div class="game-characters-container">
-                <div class="game-characters-container-inner">
-                        <div class="game-characters-title">Personnages</div>
-                        <div class="game-characters-list">
+        <div class="game-characters">
 
-                                <?php
+                <div class="game-characters-title">Personnages</div>
+                <div class="game-characters-list">
 
-                                foreach ($characters as $character) {
-                                        if (!empty($character->getMainImage())) {
-                                ?>
+                        <?php
+
+                        foreach ($characters as $character) {
+                                if (!empty($character->getMainImage())) {
+                        ?>
+                                        <div class="game-characters-list-item">
                                                 <img src="<?= PUBLIC_PATH . $character->getMainImage() ?>">
-                                <?php
-                                        }
+
+                                                <div class="game-characters-list-name"><?= $character->getCharacterName() ?></div>
+                                        </div>
+                        <?php
                                 }
-                                ?>
-                        </div>
+                        }
+                        ?>
+
                 </div>
         </div>
 
@@ -51,6 +55,11 @@
                 <div class="game-comments-title">Commentaires</div>
 
                 <?php
+                if (empty($comments)) {
+                ?>
+                        <div>Il n'y a aucun commentaire</div>
+                <?php
+                }
 
                 foreach ($comments as $comment) {
 
@@ -58,6 +67,9 @@
                         <div class="game-comments-item">
                                 <div class="game-comments-pseudo"><?= $comment->userInfo()->getPseudo() ?></div>
                                 <div class="game-comments-text"><?= $comment->getComment() ?></div>
+                                <div class="game-comments-date">
+                                        <div class="game-comments-date-item"><?= $comment->getDate() ?></div>
+                                </div>
                         </div>
                 <?php
 

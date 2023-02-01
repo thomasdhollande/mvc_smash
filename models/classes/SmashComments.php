@@ -10,6 +10,7 @@ class SmashComments
     private int $smash_id;
     private string $user_id;
     private string $comment;
+    private string $date;
     private SmashUsersModel $SmashUsersModel;
 
     function __construct()
@@ -32,7 +33,7 @@ class SmashComments
      */
     public function generalInfo(): string
     {
-        return join(",", array_filter([$this->id, $this->smash_id, $this->user_id, $this->comment]));
+        return join(",", array_filter([$this->id, $this->smash_id, $this->user_id, $this->comment, $this->date]));
     }
 
     /**
@@ -97,5 +98,21 @@ class SmashComments
     public function setComment(string $comment): void
     {
         $this->comment = $comment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDate(): string
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param string $date
+     */
+    public function setDate(string $date): void
+    {
+        $this->date = $date;
     }
 }
