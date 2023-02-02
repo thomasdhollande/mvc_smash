@@ -1,3 +1,8 @@
+<?php
+
+use utils\SessionHelpers;
+?>
+
 <div class="overlay">
     <ul class="menu-items">
         <li class="menu-item">
@@ -13,22 +18,26 @@
             <a href="./galery">Gallerie</a>
         </li>
 
-        <ul class="menu-items-admin">
-            <div class="menu-item-parent">
-                Admin
-            </div>
-            <div class="menu-items-child">
-                <li class="menu-item child">
-                    <a href="./admin/games">Gestion des jeux</a>
-                </li>
-                <li class="menu-item child">
-                    <a href="./admin/characters">Gestion des personnages</a>
-                </li>
-                <li class="menu-item child">
-                    <a href="./admin/galery">Gestion de la gallerie</a>
-                </li>
-            </div>
-        </ul>
+        <?php
+        if (SessionHelpers::isLogin()) :
+        ?>
+            <ul class="menu-items-admin">
+                <div class="menu-item-parent">
+                    Admin
+                </div>
+                <div class="menu-items-child">
+                    <li class="menu-item child">
+                        <a href="./admin/games">Gestion des jeux</a>
+                    </li>
+                    <li class="menu-item child">
+                        <a href="./admin/characters">Gestion des personnages</a>
+                    </li>
+                    <li class="menu-item child">
+                        <a href="./admin/galery">Gestion de la gallerie</a>
+                    </li>
+                </div>
+            </ul>
+        <?php endif; ?>
     </ul>
 </div>
 

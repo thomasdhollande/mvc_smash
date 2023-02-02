@@ -20,7 +20,7 @@ class SmashGamesModel extends SQL
      */
     public function listGames(): array
     {
-        $query = "SELECT * FROM smash;";
+        $query = "SELECT * FROM smash";
 
         $stmt = SQL::getPdo()->prepare($query);
         $stmt->execute();

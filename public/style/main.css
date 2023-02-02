@@ -15,6 +15,7 @@
     --tertiary-color: #FFC922;
     --bg-color: #FCFEFC;
     --error-color: #FF6E6F;
+    --success-color: #4BB543;
 }
 
 /* Global */
@@ -295,7 +296,16 @@ nav.menu {
     align-items: center;
 }
 
-/* Sections */
 .top-section {
     padding-top: 100px;
+}
+
+.button {
+    width: 10rem;
+    border: none;
+    background-color: var(--tertiary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
 }

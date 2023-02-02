@@ -2,17 +2,19 @@
 
 namespace routes;
 
-use controllers\SampleWebController;
+use controllers\HomeController;
 use controllers\SmashGamesController;
 use controllers\SmashOneGameController;
+use controllers\AuthController;
 use routes\base\Route;
+use utils\SessionHelpers;
 use utils\Template;
 
 class Web
 {
     function __construct()
     {
-        $main = new SampleWebController();
+        $main = new HomeController();
 
         // Appel la méthode « home » dans le contrôleur $main.
         Route::Add('/', [$main, 'home']);
@@ -23,10 +25,11 @@ class Web
         $SmashOneGameController = new SmashOneGameController();
         Route::Add('/game/{game_id}', [$SmashOneGameController, 'getByGameId']);
 
-                //        Exemple de limitation d'accès à une page en fonction de la SESSION.
-        //        if (SessionHelpers::isLogin()) {
-        //            Route::Add('/logout', [$main, 'home']);
-        //        }
+        $authController = new AuthController();
+        Route::Add('/auth', [$authController, 'auth']);
+
+        if (SessionHelpers::isLogin()) {
+            Route::Add('/logout', [$authController, 'logout']);
+        }
     }
 }
-
