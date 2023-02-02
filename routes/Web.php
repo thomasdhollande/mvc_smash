@@ -6,6 +6,8 @@ use controllers\HomeController;
 use controllers\SmashGamesController;
 use controllers\SmashOneGameController;
 use controllers\AuthController;
+use controllers\SmashImagesController;
+use controllers\SmashCharactersController;
 use routes\base\Route;
 use utils\SessionHelpers;
 use utils\Template;
@@ -31,5 +33,15 @@ class Web
         if (SessionHelpers::isLogin()) {
             Route::Add('/logout', [$authController, 'logout']);
         }
+        $SmashImagesController = new SmashImagesController();
+        Route::Add('/gallery', [$SmashImagesController, 'listImages']);
+
+        $SmashCharactersController = new SmashCharactersController();
+        Route::Add('/characters', [$SmashCharactersController, 'listCharacters']);
+
+                //        Exemple de limitation d'accès à une page en fonction de la SESSION.
+        //        if (SessionHelpers::isLogin()) {
+        //            Route::Add('/logout', [$main, 'home']);
+        //        }
     }
 }
