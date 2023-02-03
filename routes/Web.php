@@ -10,7 +10,6 @@ use controllers\SmashImagesController;
 use controllers\SmashCharactersController;
 use routes\base\Route;
 use utils\SessionHelpers;
-use utils\Template;
 
 class Web
 {
@@ -30,18 +29,24 @@ class Web
         $authController = new AuthController();
         Route::Add('/auth', [$authController, 'auth']);
 
-        if (SessionHelpers::isLogin()) {
-            Route::Add('/logout', [$authController, 'logout']);
-        }
         $SmashImagesController = new SmashImagesController();
         Route::Add('/gallery', [$SmashImagesController, 'listImages']);
 
         $SmashCharactersController = new SmashCharactersController();
         Route::Add('/characters', [$SmashCharactersController, 'listCharacters']);
 
-                //        Exemple de limitation d'accès à une page en fonction de la SESSION.
-        //        if (SessionHelpers::isLogin()) {
-        //            Route::Add('/logout', [$main, 'home']);
-        //        }
+        if (SessionHelpers::isLogin()) {
+            Route::Add('/logout', [$authController, 'logout']);
+
+            Route::Add('/admin/games', [$SmashGamesController, 'listGamesAdmin']);
+            Route::Add('/admin/game/add', [$SmashGamesController, 'addGameAdmin']);
+            Route::Add('/admin/game/edit/{game_id}', [$SmashGamesController, 'editGameAdmin']);
+            Route::Add('/admin/game/delete/{game_id}', [$SmashGamesController, 'deleteGameAdmin']);
+
+            Route::Add('/admin/characters', [$SmashCharactersController, 'listCharactersAdmin']);
+            Route::Add('/admin/character/add', [$SmashCharactersController, 'addCharacterAdmin']);
+            Route::Add('/admin/character/edit/{character_id}', [$SmashCharactersController, 'editCharacterAdmin']);
+            Route::Add('/admin/character/delete/{character_id}', [$SmashCharactersController, 'deleteCharacterAdmin']);
+        }
     }
 }

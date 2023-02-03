@@ -76,27 +76,22 @@
 }
 
 .game-gallery-image {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
 }
 
 .game-gallery-image img {
-    width: 25%;
+    width: 75%;
 }
-
-@media (max-width: 425px) {
-    .game-gallery-image img{
-        flex: 0 1 calc(43% - 0px);
-    }
-  }
 
 .game-characters {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     padding-bottom: 1rem;
 }
@@ -105,40 +100,35 @@
     color: var(--primary-color);
     font-size: var(--subtitle-size-desktop);
     font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .game-characters-list {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    padding: 0 10% 0 10%;
 }
 
 .game-characters-list-item {
-    width: 18%;
-    flex: 0 1 calc(20% - 8px);
+    width: 15rem;
     position: relative;
-    display: flex;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
     .game-characters-list-item {
-        flex: 0 1 calc(40% - 0px);
+        width: 10rem;
     }
-  }
+}
 
 .game-characters-list-item  img {
     width: 100%;
-    transform-origin: center;
-    transform: scale(1) translateZ(0);
-    transition:
-        filter 200ms linear,
-        transform 200ms linear;
+    height: auto;
+    transition: all 0.3s ease;
 }
 
-.game-characters-list-item  img:hover {
+.game-characters-list-item:hover img {
     transform: scale(1.10) translateZ(0);
 }
 

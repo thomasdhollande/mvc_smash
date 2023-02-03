@@ -34,11 +34,11 @@ class SmashGamesModel extends SQL
      * @param SmashGames $oneGame
      * @return bool|string
      */
-    public function createGame(SmashGames $oneGame): bool|string
+    public function createGame($game_name, $game_date_release, $game_text, $fileDestination, $game_video): bool|string
     {
-        $query = "INSERT INTO smash (id, name, date_release,) VALUES (null, ?, ?)";
+        $query = "INSERT INTO smash (name, date_release, text, bg_image, trailer_video) VALUES (?, ?, ?, ?, ?)";
         $stmt = SQL::getPdo()->prepare($query);
-        $stmt->execute([$oneGame->getName(), $oneGame->getDateRelease()]);
+        $stmt->execute([$game_name, $game_date_release, $game_text, $fileDestination, $game_video]);
 
         return $this->getPdo()->lastInsertId();
     }

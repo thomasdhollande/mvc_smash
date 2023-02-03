@@ -41,7 +41,7 @@
                                         <div class="game-characters-list-item">
                                                 <img src="<?= PUBLIC_PATH . $character->getMainImage() ?>">
 
-                                                <div class="game-characters-list-name"><?= $character->getCharacterName() ?></div>
+                                                <div class="game-characters-list-name"><?= $character->getcharacterName() ?></div>
                                         </div>
                         <?php
                                 }

@@ -3,7 +3,6 @@
 namespace models;
 
 use models\base\SQL;
-use models\classes\Auth;
 
 class AuthModel extends SQL
 {
@@ -16,8 +15,7 @@ class AuthModel extends SQL
         $query = "SELECT * FROM users WHERE email = ? OR pseudo = ?";
         $stmt = SQL::getPdo()->prepare($query);
         $stmt->execute([$emailOrPseudo, $emailOrPseudo]);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, Auth::class);
-        return $stmt->fetch();
+        return $stmt->fetch(\PDO::FETCH_OBJ);
     }
 
     public function checkUser(string $password, string $password_hashed) {

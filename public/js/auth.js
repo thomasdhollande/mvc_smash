@@ -1,7 +1,6 @@
 const auth_section = document.querySelector('#auth')
 
 if (!auth_section.classList.contains('logged')) {
-    console.log("ok")
     const auth_form = document.querySelector('#auth-form')
 
     auth_form.addEventListener('submit', (e) => {
@@ -32,7 +31,6 @@ if (!auth_section.classList.contains('logged')) {
                 return response.json()
             })
             .then(body => {
-                console.log(body)
                 if (body.error) {
                     const container_error = document.querySelector('.container_error')
                     container_error.querySelector('p').innerHTML = body.error

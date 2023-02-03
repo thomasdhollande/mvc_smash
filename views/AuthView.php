@@ -24,8 +24,8 @@ if (SessionHelpers::isLogin()) :
 
         <div class="form_container">
             <form action="" method="post" id="auth-form">
-                <input type="text" name="identifiant" id="identifiant" value="" placeholder="Pseudo ou Email">
-                <input type="password" name="password" id="password" value="" placeholder="Mot de passe">
+                <input type="text" name="identifiant" id="identifiant" value="" placeholder="Pseudo ou Email" required>
+                <input type="password" name="password" id="password" value="" placeholder="Mot de passe" required>
                 <button type="submit">Envoyer</button>
                 <div class="container_error">
                     <p>Error message</p>
