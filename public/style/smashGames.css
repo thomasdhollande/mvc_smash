@@ -1,14 +1,10 @@
 #smashGames {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .game-list {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1rem;
@@ -50,9 +46,9 @@
     transform: scale(1.05) translateZ(0);
 }
 
-.game-list:hover>.game-card:not(:hover) .game-card-background {
+/* .game-list:hover>.game-card:not(:hover) .game-card-background {
     filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
-}
+} */
 
 .game-card-content {
     z-index: 1;
@@ -67,4 +63,110 @@
     font-weight: bold;
     text-align: center;
     text-shadow: 2px 2px 4px var(--primary-color);
+}
+
+.game_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.games_action_buttons_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.games_action_buttons_container .button {
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.games_action_buttons_container .button.delete {
+    background-color: var(--error-color);
+}
+
+.add_btn_container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.form_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add_game_form, #edit_game_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#add_game_form input[type=text], #edit_game_form input[type=text] {
+    width: 20rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+#add_game_form button, #edit_game_form button {
+    width: 20rem;
+    border: none;
+    background-color: var(--tertiary-color);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container_error {
+    display: none;
+    width: 100%;
+    min-height: 2rem;
+    border-radius: 4px;
+    background-color: var(--error-color);
+    padding: 1rem 0.5rem;
+    margin: 1rem;
+}
+
+.container_error.active {
+    display: block;
+}
+
+.container_error p {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.container_success {
+    display: none;
+    width: 100%;
+    min-height: 2rem;
+    border-radius: 4px;
+    background-color: var(--success-color);
+    padding: 1rem 0.5rem;
+    margin: 1rem;
+}
+
+.container_success.active {
+    display: block;
+}
+
+.container_success p {
+    font-weight: bold;
+    color: var(--primary-color);
 }

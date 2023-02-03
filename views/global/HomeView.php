@@ -13,7 +13,7 @@
                 <a href="./characters" class="solano-bold">Voir les personnages</a>
             </div>
             <div class="card galery">
-                <a href="./galery" class="solano-bold">Voir la gallerie</a>
+                <a href="./gallery" class="solano-bold">Voir la galerie</a>
             </div>
         </div>
     </div>

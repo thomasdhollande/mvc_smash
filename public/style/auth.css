@@ -1,0 +1,93 @@
+.title_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#auth-form input[type=text], #auth-form input[type=password] {
+    width: 20rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+#auth-form button {
+    width: 20rem;
+    border: none;
+    background-color: var(--tertiary-color);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container_error {
+    display: none;
+    width: 100%;
+    min-height: 2rem;
+    border-radius: 4px;
+    background-color: var(--error-color);
+    padding: 1rem 0.5rem;
+}
+
+.container_error.active {
+    display: block;
+}
+
+.container_error p {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.container_success {
+    display: none;
+    width: 100%;
+    min-height: 2rem;
+    border-radius: 4px;
+    background-color: var(--success-color);
+    padding: 1rem 0.5rem;
+}
+
+.container_success.active {
+    display: block;
+}
+
+.container_success p {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logout_btn_container {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.logout_btn {
+    position: relative;
+}
+
+.logout_btn a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
