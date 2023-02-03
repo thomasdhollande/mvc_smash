@@ -15,7 +15,7 @@ use utils\SessionHelpers;
             <a href="/characters">Liste des personnages</a>
         </li>
         <li class="menu-item">
-            <a href="/galery">Gallerie</a>
+            <a href="/gallery">Gallerie</a>
         </li>
 
         <?php
@@ -33,7 +33,7 @@ use utils\SessionHelpers;
                         <a href="/admin/characters">Gestion des personnages</a>
                     </li>
                     <li class="menu-item child">
-                        <a href="/admin/galery">Gestion de la gallerie</a>
+                        <a href="/admin/gallery">Gestion de la gallerie</a>
                     </li>
                 </div>
             </ul>
